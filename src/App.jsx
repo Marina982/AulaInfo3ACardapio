@@ -63,7 +63,6 @@ export default function App() {
 
 console.table(listaPedidos);
 
-
     return (
        <div className="bloco-principal">
         <div className="bloco-produtos">
@@ -80,17 +79,24 @@ console.table(listaPedidos);
         }
         </div>
 <div className="bloco-pedidos">
-    <p>Meus Pedidos</p>
-    {
-        listaPedidos.map((produto) => 
-            <table key={produto.id}>
-                <tr>
-                <td>{produto.item}</td>
+<p>Meus Pedidos</p>
+    <table>
+        <tr>
+            <th>Imagem</th>
+            <th>Nome</th>
+            <th>Preço</th>
+        </tr>
+        {
+            listaPedidos.map((produto) => 
+                <tr key={produto.id}>
+                    <td><img src={produto.imagem}/></td>
+                    <td>{produto.item}</td>
+                    <td>{produto.preco}</td>
                 </tr>
-                <td>{produto.preco}</td>
-            </table>
-        )
-    }
+                
+            )
+        }
+    </table>
 
 </div>
 
