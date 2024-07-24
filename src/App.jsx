@@ -82,7 +82,7 @@ console.table(listaPedidos);
 <p>Meus Pedidos</p>
     <table>
         <tr>
-            <th>Imagem</th>
+            <th>Produto</th>
             <th>Nome</th>
             <th>Preço</th>
         </tr>
