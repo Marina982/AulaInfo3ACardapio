@@ -47,23 +47,53 @@ export default function App() {
 
             imagem: "https://helenalunardelli.com.br/wp-content/uploads/2013/02/sucos.jpg",
 
-            preco: "R$ 8,99"
+            preco: "R$ 9,99"
 
         },
     
     ]);
    
 
+    const [listaPedidos, setPedidos] = useState([]);
+    const adicionarProdutoPedido = (produto) => {
+        setPedidos([...listaPedidos, produto]);
+
+     }
+
+
+console.table(listaPedidos);
+
 
     return (
-       <div>
+       <div className="bloco-principal">
+        <div className="bloco-produtos">
         {
-            listaProdutos.map((objeto) =>
-            <div key={objeto.id}>
-<p>{objeto.item}</p>
+            listaProdutos.map((produto) =>
+            <div key={produto.id}>
+                <img src={produto.imagem}/>
+<p>{produto.item}</p>
+<p>{produto.preco}</p>
+<button onClick={() =>
+     adicionarProdutoPedido(produto)}>Adicionar</button>
             </div>
             )
         }
+        </div>
+<div className="bloco-pedidos">
+    <p>Meus Pedidos</p>
+    {
+        listaPedidos.map((produto) => 
+            <table key={produto.id}>
+                <tr>
+                <td>{produto.item}</td>
+                </tr>
+                <td>{produto.preco}</td>
+            </table>
+        )
+    }
+
+</div>
+
        </div>
     );
 }
