@@ -52,8 +52,8 @@ export default function App() {
         },
     
     ]);
-   
 
+   
     const [listaPedidos, setPedidos] = useState([]);
     const adicionarProdutoPedido = (produto) => {
         setPedidos([...listaPedidos, produto]);
@@ -62,6 +62,18 @@ export default function App() {
 
 
 console.table(listaPedidos);
+
+const RemoverItem = (id)=> {
+let listaAux = listaPedidos.filter((pedido)=> pedido.id !== id );
+setPedidos(listaAux);
+
+if(){
+
+}else{
+    
+}
+
+}
 
     return (
        <div className="bloco-principal">
@@ -92,6 +104,9 @@ console.table(listaPedidos);
                     <td><img src={produto.imagem}/></td>
                     <td>{produto.item}</td>
                     <td>{produto.preco}</td>
+                    <td>
+                        <button onClick={()=> RemoverItem(produto.id)}>x</button>
+                    </td>
                 </tr>
                 
             )
